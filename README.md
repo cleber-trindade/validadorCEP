@@ -7,7 +7,7 @@ It is intended for educational purposes only, to demonstrate how to consume a re
 First, you need to clone the repository to access and run the project:
 
 ```
-git clone https://github.com/yourusername/repository-name.git
+git clone (https://github.com/cleber-trindade/validadorCEP.git)
 ```
 <h2>Creating a Virtual Environment (Optional, but Recommended)</h2>
 It's recommended to use a virtual environment to isolate dependencies.
