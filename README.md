@@ -1,20 +1,80 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+<h1>CEP Validator</h1>
+<h2>Description</h2>
+This project is an API developed with Flask. It allows you to retrieve full address information using a Brazilian ZIP code (CEP).
+It is intended for educational purposes only, to demonstrate how to consume a real API and handle errors properly.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+<h2>1. Cloning the Repository</h2>
+First, you need to clone the repository to access and run the project:
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+```
+git clone https://github.com/yourusername/repository-name.git
+```
+<h2>Creating a Virtual Environment (Optional, but Recommended)</h2>
+It's recommended to use a virtual environment to isolate dependencies.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+```
+python -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
+```
+<h2>3. Installing Dependencies </h2>
+Install the required packages using:
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+```
+pip install -r requirements.txt
+```
+
+<h2>Running the Application</h2>
+You can star the app with:
+
+```
+python app.py 
+```
+If it works correctly, you should see this message in the terminal:
+
+```
+Running on http://127.0.0.1:5000
+```
+<h2>Option 1 – Using Postman</h2>
+Open Postman and create a GET request with this URL:
+
+```
+http://127.0.0.1:5000/cep/01001000
+```
+
+Replace 01001000 with any valid Brazilian CEP (ZIP code).
+The response will include full address data from the ViaCEP API.
+
+<h3>If the CEP is invalid or does not exist:</h3>
+
+http://127.0.0.1:5000/cep/abcdefg → returns 400 (Invalid CEP)
+http://127.0.0.1:5000/cep/00000000 → returns 404 (CEP not found)
+
+<h2>Option 2 – Using the Browser</h2>
+You can also test it by typing the full URL directly in your browser:
+
+```
+http://127.0.0.1:5000/cep/01001000
+```
+<h1>5. Requirements and Acceptance Criteria</h1>
+<h2>Requirements</h2>
+
+<ul>
+<li>Accept a ZIP code (CEP) as input via URL</li>
+<li>Return full address data using the ViaCEP public API</li>
+<li>Handle errors for invalid or non-existent ZIP codes</li>
+</ul>
+
+<h2>Acceptance Criteria</h2>
+<ul>
+<li>Valid ZIP code returns HTTP 200 with address data</li>
+<li>Invalid ZIP code (letters, wrong format) returns HTTP 400</li>
+<li>Non-existent ZIP code returns HTTP 404</li>
+</ul>
+
+<h1>Dependences</h1>
+Install all required dependences using:
+
+```
+pip install flask requests
+```
